@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, MapPin, Phone, Send, CheckCircle2 } from 'lucide-react';
+import { sendContactEmail } from '../api/mailApi';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    middleName: '',
-    lastName: '',
+    name: '',
     email: '',
     phone: '',
     message: ''
   });
+  const [submitStatus, setSubmitStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for getting in touch! We will contact you soon.');
-    setFormData({ firstName: '', middleName: '', lastName: '', email: '', phone: '', message: '' });
+    setSubmitStatus('submitting');
+    try {
+      await sendContactEmail(formData);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -117,51 +124,26 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">First Name</label>
+                  <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Name</label>
                   <input 
                     type="text" 
-                    name="firstName"
-                    value={formData.firstName}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
-                    placeholder="Enter Your First Name" 
+                    placeholder="Enter Your Name" 
                     required
                     className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Middle Name</label>
-                  <input 
-                    type="text" 
-                    name="middleName"
-                    value={formData.middleName}
-                    onChange={handleChange}
-                    placeholder="Enter Your Middle Name" 
-                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Last Name</label>
-                  <input 
-                    type="text" 
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    placeholder="Enter Your Last Name" 
-                    required
-                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Phone (Optional)</label>
+                  <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Phone <span className="text-red-500">*</span></label>
                   <input 
                     type="tel" 
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Enter Your Phone Number" 
+                    required
                     className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
                   />
                 </div>
@@ -193,13 +175,37 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button 
-                type="submit"
-                className="w-full bg-gold-primary text-black font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:bg-gold-secondary transition-colors duration-300 flex items-center justify-center gap-2 mt-4"
-              >
-                <Send size={18} />
-                Message Us
-              </button>
+              <AnimatePresence mode="wait">
+                {submitStatus === 'success' ? (
+                  <motion.div 
+                    key="success"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="w-full bg-green-500/20 border border-green-500/50 text-green-400 font-bold uppercase tracking-widest text-sm py-4 rounded-lg flex items-center justify-center gap-2 mt-4"
+                  >
+                    <CheckCircle2 size={18} />
+                    Message Sent Successfully!
+                  </motion.div>
+                ) : (
+                  <motion.button 
+                    key="submit"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    type="submit"
+                    disabled={submitStatus === 'submitting'}
+                    className={`w-full bg-gold-primary text-black font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:bg-gold-secondary transition-colors duration-300 flex items-center justify-center gap-2 mt-4 ${submitStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  >
+                    <Send size={18} className={submitStatus === 'submitting' ? 'animate-pulse' : ''} />
+                    {submitStatus === 'submitting' ? 'Sending...' : 'Message Us'}
+                  </motion.button>
+                )}
+              </AnimatePresence>
+              
+              {submitStatus === 'error' && (
+                <p className="text-red-400 text-xs mt-2 text-center absolute -bottom-6 w-full left-0">Failed to send. Please try again.</p>
+              )}
             </form>
           </motion.div>
 

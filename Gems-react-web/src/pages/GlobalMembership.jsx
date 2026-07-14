@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Send, CheckCircle2 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
+import { sendContactEmail } from '../api/mailApi';
 
 const pricing = {
   Vietnam: { economy: '2,499,000 ₫', premium: '7,499,000 ₫', firstClass: '14,999,000 ₫' },
@@ -71,11 +73,32 @@ const getPlans = (country) => [
 
 const GlobalMembership = () => {
   const [selectedCountry, setSelectedCountry] = useState('USA');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const activePlans = getPlans(selectedCountry);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitStatus('submitting');
+    try {
+      await sendContactEmail(formData);
+      setSubmitStatus('success');
+      setFormData({ name: '', phone: '', email: '', message: '' });
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setIsModalOpen(false);
+      }, 3000); // Close modal after 3 seconds of success
+    } catch (error) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-dark-bg text-white relative flex flex-col">
@@ -180,7 +203,10 @@ const GlobalMembership = () => {
                   </ul>
                 </div>
 
-                <button className={`w-full mt-12 py-4 rounded-lg uppercase tracking-widest text-sm font-bold transition-all duration-300 shadow-lg hover:shadow-gold-primary/20 ${plan.buttonStyle}`}>
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className={`w-full mt-12 py-4 rounded-lg uppercase tracking-widest text-sm font-bold transition-all duration-300 shadow-lg hover:shadow-gold-primary/20 inline-block text-center ${plan.buttonStyle}`}
+                >
                   Join Membership
                 </button>
               </motion.div>
@@ -201,15 +227,133 @@ const GlobalMembership = () => {
                 Feel free to reach out to us—we're here to help!
               </p>
             </div>
-            <a href="#contact" className="whitespace-nowrap px-8 py-4 bg-white text-dark-bg hover:bg-gray-200 font-bold uppercase tracking-widest text-sm rounded-lg transition-colors inline-block text-center">
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="whitespace-nowrap px-8 py-4 bg-white text-dark-bg hover:bg-gray-200 font-bold uppercase tracking-widest text-sm rounded-lg transition-colors inline-block text-center"
+            >
               Contact GEMS Groups
-            </a>
+            </button>
           </motion.div>
 
         </div>
       </main>
 
       <Footer />
+
+      {/* Membership Form Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-dark-bg border border-gray-800 rounded-2xl p-8 w-full max-w-2xl relative shadow-2xl shadow-gold-primary/10 overflow-y-auto max-h-[90vh]"
+            >
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors"
+              >
+                <X size={24} />
+              </button>
+
+              <h2 className="text-2xl font-serif text-white mb-8 uppercase tracking-widest">Message Us</h2>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Name</label>
+                    <input 
+                      type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Enter Your Name" 
+                      required
+                      className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Phone <span className="text-red-500">*</span></label>
+                    <input 
+                      type="tel" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Enter Your Phone Number" 
+                      required
+                      className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Email</label>
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email Address" 
+                    required
+                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Message</label>
+                  <textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help you?" 
+                    rows="4"
+                    required
+                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all resize-none"
+                  ></textarea>
+                </div>
+
+                <AnimatePresence mode="wait">
+                  {submitStatus === 'success' ? (
+                    <motion.div 
+                      key="success"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="w-full bg-green-500/20 border border-green-500/50 text-green-400 font-bold uppercase tracking-widest text-sm py-4 rounded-lg flex items-center justify-center gap-2 mt-4"
+                    >
+                      <CheckCircle2 size={18} />
+                      Message Sent Successfully!
+                    </motion.div>
+                  ) : (
+                    <motion.button 
+                      key="submit"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      type="submit"
+                      disabled={submitStatus === 'submitting'}
+                      className={`w-full bg-gold-primary text-black font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:bg-gold-secondary transition-colors duration-300 flex items-center justify-center gap-2 mt-4 ${submitStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    >
+                      <Send size={18} className={submitStatus === 'submitting' ? 'animate-pulse' : ''} />
+                      {submitStatus === 'submitting' ? 'Sending...' : 'Message Us'}
+                    </motion.button>
+                  )}
+                </AnimatePresence>
+
+                {submitStatus === 'error' && (
+                  <p className="text-red-400 text-xs mt-2 text-center absolute -bottom-6 w-full left-0">Failed to send request. Please try again.</p>
+                )}
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
