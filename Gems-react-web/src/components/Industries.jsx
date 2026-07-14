@@ -6,7 +6,7 @@ import gemsSoftware from '../assets/images/gems-software.png';
 import gemsCar from '../assets/images/gems-car.png';
 import gemsDigital from '../assets/images/gems-digital.png';
 
-const Industries = () => {
+const Industries = ({ onIndustryClick }) => {
   const industries = [
     { name: 'Luxury Travel Membership', icon: Plane, imageSrc: gemsTravel },
     { name: 'Software & IT Services', icon: Code2, imageSrc: gemsSoftware },
@@ -41,6 +41,7 @@ const Industries = () => {
           key={index}
           variants={itemVariants}
           className="flex flex-col items-center text-center group cursor-pointer"
+          onClick={() => onIndustryClick && onIndustryClick(index)}
         >
           {/* Circle Wrapper */}
           <div className="relative w-24 h-24 mb-4 flex items-center justify-center">

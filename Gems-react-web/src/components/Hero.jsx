@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import Industries from './Industries';
 import StatsCard from './StatsCard';
 
-const Hero = () => {
+const Hero = ({ onIndustryClick }) => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
@@ -33,11 +36,11 @@ const Hero = () => {
               At GEMS Groups, we unite innovation, technology, travel, automotive excellence, and strategic media to create world-class business solutions that empower companies across the globe.
             </p>
 
-            <Industries />
+            <Industries onIndustryClick={onIndustryClick} />
 
             <div className="flex flex-wrap gap-4 mt-4">
-              <Button variant="primary">Our Services</Button>
-              <Button variant="secondary">Contact Us</Button>
+              <Button variant="primary" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>Our Services</Button>
+              <Button variant="secondary" onClick={() => navigate('/contact')}>Contact Us</Button>
             </div>
           </motion.div>
 
@@ -48,7 +51,7 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="mt-20 lg:mt-64 relative z-30"
+              className="mt-20 lg:mt-64 relative z-30 lg:translate-x-[50px]"
             >
               <StatsCard />
             </motion.div>

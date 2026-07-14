@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import gemsGroupsLogo from '../assets/images/gems-groups.png'; 
 
 const Footer = () => {
+  const location = useLocation();
+
   return (
     <footer className="bg-dark-bg/95 border-t border-white/5 pt-16 pb-8 relative z-20 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,10 +27,23 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-serif text-white mb-6 uppercase tracking-widest">Quick Links</h3>
             <ul className="space-y-4">
-              <li><Link to="/" className="text-gray-400 hover:text-gold-primary transition-colors text-sm font-medium">Home</Link></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-gold-primary transition-colors text-sm font-medium">Contact</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-gold-primary transition-colors text-sm font-medium">Services</a></li>
-              <li><a href="#about" className="text-gray-400 hover:text-gold-primary transition-colors text-sm font-medium">About Us</a></li>
+              <li>
+                <Link 
+                  to="/" 
+                  onClick={(e) => {
+                    if (location.pathname === '/') {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
+                  className="text-gray-400 hover:text-gold-primary transition-colors text-sm font-medium"
+                >
+                  Home
+                </Link>
+              </li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-gold-primary transition-colors text-sm font-medium">Contact</Link></li>
+              <li><Link to="/#services" className="text-gray-400 hover:text-gold-primary transition-colors text-sm font-medium">Services</Link></li>
+              <li><Link to="/#about" className="text-gray-400 hover:text-gold-primary transition-colors text-sm font-medium">About Us</Link></li>
             </ul>
           </div>
 

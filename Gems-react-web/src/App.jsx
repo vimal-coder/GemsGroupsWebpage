@@ -6,6 +6,7 @@ import EmployeePortal from './pages/EmployeePortal';
 import SignIn from './pages/SignIn';
 import CreateAccount from './pages/CreateAccount';
 import GlobalMembership from './pages/GlobalMembership';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/global-membership" element={<GlobalMembership />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
   );

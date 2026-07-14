@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Globe, Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import gemsGroupsLogo from '../assets/images/gems-groups.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,9 +21,9 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '/', isRouterLink: true },
     { name: 'Membership Plan', href: '#membership', isRouterLink: false },
-    { name: 'Services', href: '#', isRouterLink: false },
-    { name: 'Contact', href: '#', isRouterLink: false },
-    { name: 'About Us', href: '#', isRouterLink: false },
+    { name: 'Services', href: '#services', isRouterLink: false },
+    { name: 'Contact', href: '/contact', isRouterLink: true },
+    { name: 'About Us', href: '#about', isRouterLink: false },
     { name: 'Staff Login', href: '/staff-login', isRouterLink: true },
   ];
 
@@ -57,11 +59,21 @@ const Navbar = () => {
                 <LinkComponent
                   key={link.name}
                   to={link.isRouterLink ? link.href : undefined}
-                  href={!link.isRouterLink ? link.href : undefined}
+                  href={!link.isRouterLink && !link.onClick ? link.href : undefined}
                   onClick={(e) => {
-                    if (link.name === 'Home' && window.location.pathname === '/') {
+                    if (link.onClick) {
+                      e.preventDefault();
+                      link.onClick();
+                    } else if (link.name === 'Home' && location.pathname === '/') {
                       e.preventDefault();
                       window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else if (!link.isRouterLink && link.href.startsWith('#')) {
+                      e.preventDefault();
+                      if (location.pathname !== '/') {
+                        navigate('/' + link.href);
+                      } else {
+                        document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                      }
                     }
                   }}
                   className="relative text-sm font-medium text-gray-300 hover:text-white group transition-colors"
@@ -105,12 +117,25 @@ const Navbar = () => {
                 <LinkComponent 
                   key={link.name} 
                   to={link.isRouterLink ? link.href : undefined}
-                  href={!link.isRouterLink ? link.href : undefined}
+                  href={!link.isRouterLink && !link.onClick ? link.href : undefined}
                   onClick={(e) => {
                     setIsMobileMenuOpen(false);
-                    if (link.name === 'Home' && window.location.pathname === '/') {
+                    if (link.onClick) {
+                      e.preventDefault();
+                      link.onClick();
+                    } else if (link.name === 'Home' && location.pathname === '/') {
                       e.preventDefault();
                       window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else if (!link.isRouterLink && link.href.startsWith('#')) {
+                      e.preventDefault();
+                      if (location.pathname !== '/') {
+                        navigate('/' + link.href);
+                      } else {
+                        // Add a small delay for mobile menu close animation
+                        setTimeout(() => {
+                          document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                      }
                     }
                   }}
                   className="text-gray-300 hover:text-gold-primary transition-colors text-sm font-medium"
