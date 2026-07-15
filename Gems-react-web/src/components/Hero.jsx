@@ -20,11 +20,11 @@ const Hero = ({ onIndustryClick }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col justify-center"
           >
-            <h1 className="text-6xl md:text-7xl font-extrabold mb-4 tracking-tight text-white leading-tight">
+            <h1 className="text-5xl md:text-6xl font-semibold mb-4 tracking-wider text-[#C9A227] leading-tight font-cinzel">
               GEMS GROUPS
             </h1>
 
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-300">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-300 tracking-wide">
               <span className="text-[#C9A227]">FOUR INDUSTRIES.</span> ONE VISION.
             </h2>
 

@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Logo and Contact Banner */}
           <div className="lg:col-span-1">
             <div className="flex flex-col gap-2 mb-6">
-              <img src={gemsGroupsLogo} alt="Gems Groups" className="h-12 w-auto object-contain self-start" />
+              <img src={gemsGroupsLogo} alt="Gems Groups" className="h-12 w-12 rounded-full object-cover self-start" />
               <span className="text-xl font-extrabold tracking-wider leading-tight text-white mt-2">GEMS GROUPS</span>
             </div>
             <h4 className="text-sm font-semibold text-gold-primary mb-2">Presence :</h4>

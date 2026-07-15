@@ -39,7 +39,7 @@ const Navbar = () => {
               transition={{ duration: 0.8 }}
               className="flex items-center justify-center"
             >
-              <img src={gemsGroupsLogo} alt="Gems Groups Logo" className="h-10 w-auto object-contain" />
+              <img src={gemsGroupsLogo} alt="Gems Groups Logo" className="h-10 w-10 rounded-full object-cover" />
             </motion.div>
             <div className="flex flex-col">
               <span className="text-xl font-extrabold tracking-wider leading-tight">GEMS GROUPS</span>
