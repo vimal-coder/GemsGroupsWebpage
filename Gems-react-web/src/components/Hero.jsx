@@ -9,8 +9,8 @@ const Hero = ({ onIndustryClick }) => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="container relative z-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Side Content */}
@@ -20,25 +20,25 @@ const Hero = ({ onIndustryClick }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col justify-center"
           >
-            <h1 className="text-5xl md:text-6xl font-semibold mb-4 tracking-wider text-[#C9A227] leading-tight font-cinzel">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-1 tracking-wider text-[#C9A227] leading-tight font-cinzel">
               GEMS GROUPS
             </h1>
 
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-300 tracking-wide">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-gray-300 tracking-wide">
               <span className="text-[#C9A227]">FOUR INDUSTRIES.</span> ONE VISION.
             </h2>
 
-            <h3 className="text-xl md:text-2xl font-medium text-gray-400 mb-6">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-gray-400 mb-2">
               Transforming Businesses. <br className="hidden md:block" /> Empowering Lives.
             </h3>
 
-            <p className="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed">
+            <p className="text-gray-400 text-lg mb-2 max-w-lg leading-relaxed">
               At GEMS Groups, we unite innovation, technology, travel, automotive excellence, and strategic media to create world-class business solutions that empower companies across the globe.
             </p>
 
             <Industries onIndustryClick={onIndustryClick} />
 
-            <div className="flex flex-wrap gap-4 mt-4">
+            <div className="flex flex-wrap gap-4 mt-2">
               <Button variant="primary" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>Our Services</Button>
               <Button variant="secondary" onClick={() => navigate('/contact')}>Contact Us</Button>
             </div>

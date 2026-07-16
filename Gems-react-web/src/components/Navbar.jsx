@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-nav py-3' : 'bg-transparent py-5'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center gap-3">
@@ -42,7 +42,7 @@ const Navbar = () => {
               <img src={gemsGroupsLogo} alt="Gems Groups Logo" className="h-10 w-10 rounded-full object-cover" />
             </motion.div>
             <div className="flex flex-col">
-              <span className="text-xl font-extrabold tracking-wider leading-tight">GEMS GROUPS</span>
+              <span className="text-lg md:text-xl font-extrabold tracking-wider leading-tight">GEMS GROUPS</span>
               <div className="flex items-center gap-2 mt-0.5">
                 <div className="h-[1px] w-4 bg-gold-primary"></div>
                 <span className="text-[10px] text-gold-primary tracking-widest uppercase font-medium">Since 2020</span>

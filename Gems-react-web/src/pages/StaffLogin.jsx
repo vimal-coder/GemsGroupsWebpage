@@ -21,7 +21,7 @@ const StaffLogin = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-bg text-white">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-bg text-white px-4">
       <AnimatedBackground />
       
       {/* Return to Home button */}

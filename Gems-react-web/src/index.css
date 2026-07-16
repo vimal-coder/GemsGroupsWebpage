@@ -12,11 +12,24 @@
 }
 
 @layer base {
+  html, body {
+    overflow-x: hidden;
+  }
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-dark-bg text-white font-sans overflow-x-hidden;
+    @apply bg-dark-bg text-white font-sans;
+  }
+  section {
+    padding: 80px 0;
+  }
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 }
 

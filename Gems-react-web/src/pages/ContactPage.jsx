@@ -13,7 +13,7 @@ const ContactPage = () => {
     <div className="min-h-screen bg-dark-bg text-white relative flex flex-col">
       <AnimatedBackground />
       <Navbar />
-      <div className="flex-grow pt-24">
+      <div className="flex-grow">
         <Contact />
       </div>
       <Footer />

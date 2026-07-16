@@ -89,14 +89,14 @@ const Services = ({ openServiceIndex, onCloseService }) => {
   }, [selectedService]);
 
   return (
-    <section id="services" className={`py-24 relative ${selectedService ? 'z-[100]' : 'z-10'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+    <section id="services" className={`relative min-h-screen flex items-center pt-16 pb-4 ${selectedService ? 'z-[100]' : 'z-10'}`}>
+      <div className="container w-full">
+        <div className="text-center mb-6">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-serif text-gold-primary mb-6 uppercase tracking-wider"
+            className="text-3xl sm:text-4xl md:text-5xl font-serif text-gold-primary mb-2 uppercase tracking-wider"
           >
             Our Services
           </motion.h2>
@@ -105,13 +105,13 @@ const Services = ({ openServiceIndex, onCloseService }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-sm md:text-base text-gray-300 max-w-4xl mx-auto uppercase tracking-wide leading-relaxed font-semibold"
+            className="text-xs sm:text-sm md:text-base text-gray-300 max-w-4xl mx-auto uppercase tracking-wide leading-relaxed font-semibold"
           >
             Delivering excellence across diverse industries to meet your unique business and lifestyle needs.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -119,21 +119,21 @@ const Services = ({ openServiceIndex, onCloseService }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="rounded-2xl p-8 border border-gray-800/30 backdrop-blur-md bg-gradient-to-b from-[#1a1a1a]/60 to-transparent hover:border-gold-primary/30 transition-all duration-500 group flex flex-col h-full cursor-pointer"
+              className="rounded-2xl p-4 sm:p-5 border border-gray-800/30 backdrop-blur-md bg-gradient-to-b from-[#1a1a1a]/60 to-transparent hover:border-gold-primary/30 transition-all duration-500 group flex flex-col h-full cursor-pointer"
               onClick={() => setSelectedService(service)}
             >
-              <div className="flex items-center gap-6 mb-6">
-                <div className="w-16 h-16 rounded-full bg-dark-bg border border-gray-700/50 flex items-center justify-center group-hover:border-gold-primary/50 group-hover:scale-110 transition-all duration-500 flex-shrink-0">
-                  <service.icon className="text-gold-primary w-8 h-8 group-hover:text-white transition-colors duration-500" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-dark-bg border border-gray-700/50 flex items-center justify-center group-hover:border-gold-primary/50 group-hover:scale-110 transition-all duration-500 flex-shrink-0">
+                  <service.icon className="text-gold-primary w-5 h-5 group-hover:text-white transition-colors duration-500" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-serif text-white tracking-wider uppercase group-hover:text-gold-primary transition-colors duration-500">{service.title}</h3>
+                <h3 className="text-sm sm:text-base md:text-lg font-serif text-white tracking-wider uppercase group-hover:text-gold-primary transition-colors duration-500">{service.title}</h3>
               </div>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed flex-grow font-medium">
+              <p className="text-gray-400 text-xs leading-snug flex-grow font-medium">
                 {service.description}
               </p>
               
-              <div className="mt-8 pt-6 border-t border-gray-800/50 flex justify-between items-center group-hover:border-gold-primary/30 transition-colors duration-500">
-                 <span className="text-gold-primary text-xs uppercase tracking-widest font-bold group-hover:text-white transition-colors duration-500">Learn More</span>
+              <div className="mt-3 pt-3 border-t border-gray-800/50 flex justify-between items-center group-hover:border-gold-primary/30 transition-colors duration-500">
+                 <span className="text-gold-primary text-[10px] sm:text-[11px] uppercase tracking-widest font-bold group-hover:text-white transition-colors duration-500">Learn More</span>
                  <div className="w-8 h-[1px] bg-gold-primary group-hover:w-12 group-hover:bg-white transition-all duration-500"></div>
               </div>
             </motion.div>
@@ -155,7 +155,7 @@ const Services = ({ openServiceIndex, onCloseService }) => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-dark-bg border border-gold-primary/30 rounded-2xl p-6 md:p-10 max-w-2xl w-full relative shadow-[0_0_40px_rgba(201,162,39,0.15)]"
+              className="bg-dark-bg border border-gold-primary/30 rounded-2xl p-5 sm:p-6 md:p-10 max-w-2xl w-[95%] relative shadow-[0_0_40px_rgba(201,162,39,0.15)] mx-auto"
             >
               <button 
                 onClick={handleClose}
@@ -168,7 +168,7 @@ const Services = ({ openServiceIndex, onCloseService }) => {
                 <div className="p-3 rounded-full bg-gold-primary/10 text-gold-primary">
                   <selectedService.icon size={32} />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-serif text-white uppercase tracking-wider">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-white uppercase tracking-wider">
                   {selectedService.title}
                 </h3>
               </div>

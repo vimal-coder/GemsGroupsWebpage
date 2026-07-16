@@ -30,21 +30,21 @@ const Industries = ({ onIndustryClick }) => {
   };
 
   return (
-    <motion.div 
-      className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 mb-12"
+    <motion.div
+      className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 mb-4"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       {industries.map((industry, index) => (
-        <motion.div 
+        <motion.div
           key={index}
           variants={itemVariants}
           className="flex flex-col items-center text-center group cursor-pointer"
           onClick={() => onIndustryClick && onIndustryClick(index)}
         >
           {/* Circle Wrapper */}
-          <div className="relative w-24 h-24 mb-4 flex items-center justify-center">
+          <div className="relative w-16 h-16 mb-2 flex items-center justify-center">
             {/* Outer Circle border */}
             <div className="absolute inset-0 rounded-full bg-gold-primary/20 group-hover:bg-gold-primary transition-colors duration-500"></div>
             {/* Inner Circle background */}
@@ -58,7 +58,7 @@ const Industries = ({ onIndustryClick }) => {
             {/* Glow effect on hover */}
             <div className="absolute inset-0 rounded-full bg-gold-primary opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500 z-0"></div>
           </div>
-          
+
           <h3 className="text-sm font-semibold text-gray-300 group-hover:text-white transition-colors max-w-[150px]">
             {industry.name}
           </h3>

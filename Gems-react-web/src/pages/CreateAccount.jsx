@@ -37,7 +37,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-dark-bg text-white overflow-hidden py-12">
+    <div className="relative min-h-screen flex items-center justify-center bg-dark-bg text-white overflow-hidden py-12 px-4">
       <AnimatedBackground />
 
       <div className="absolute top-8 left-8 z-50">

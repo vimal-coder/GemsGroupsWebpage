@@ -31,16 +31,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative z-10 bg-transparent">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative z-10 bg-transparent min-h-screen flex items-center pt-16 pb-4">
+      <div className="container w-full">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-6">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-serif text-gold-primary mb-6 uppercase tracking-wider"
+            className="text-3xl sm:text-4xl md:text-5xl font-serif text-gold-primary mb-2 uppercase tracking-wider"
           >
             Contact
           </motion.h2>
@@ -49,13 +49,13 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-sm md:text-base text-gray-300 max-w-4xl mx-auto uppercase tracking-wide leading-relaxed font-semibold"
+            className="text-xs sm:text-sm md:text-base text-gray-300 max-w-4xl mx-auto uppercase tracking-wide leading-relaxed font-semibold"
           >
             Luxury Travel Membership Contact services by GEMS Groups help clients connect with our team for premium travel memberships, strategic media solutions, and luxury business services worldwide.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Info */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -63,14 +63,14 @@ const Contact = () => {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <h3 className="text-2xl md:text-3xl font-serif text-white mb-4 uppercase tracking-wide">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-white mb-2 uppercase tracking-wide">
               We’re Listening. Let’s Begin!
             </h3>
-            <p className="text-gray-400 text-base leading-relaxed mb-10 font-medium">
+            <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-4 font-medium">
               Connect with us to bring your vision to life with innovation, performance, and luxury.
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-4">
               <div className="flex items-start gap-4 group">
                 <div className="w-12 h-12 rounded-full bg-dark-bg border border-gold-primary/30 flex items-center justify-center group-hover:bg-gold-primary/20 transition-colors flex-shrink-0">
                   <Mail className="text-gold-primary group-hover:text-white transition-colors" size={20} />
@@ -114,16 +114,16 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 md:p-10 relative overflow-hidden"
+            className="glass-card p-4 sm:p-6 relative overflow-hidden w-full max-w-lg lg:max-w-none mx-auto"
           >
             {/* Decorative background blur inside card */}
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-gold-primary/10 rounded-full blur-3xl z-0 pointer-events-none"></div>
             
-            <h3 className="text-2xl font-serif text-white mb-8 uppercase tracking-wide relative z-10">Message Us</h3>
+            <h3 className="text-xl sm:text-2xl font-serif text-white mb-4 uppercase tracking-wide relative z-10">Message Us</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
+            <form onSubmit={handleSubmit} className="space-y-3 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                <div className="space-y-1">
                   <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Name</label>
                   <input 
                     type="text" 
@@ -132,10 +132,10 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Enter Your Name" 
                     required
-                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Phone <span className="text-red-500">*</span></label>
                   <input 
                     type="tel" 
@@ -144,12 +144,12 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Enter Your Phone Number" 
                     required
-                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Email</label>
                 <input 
                   type="email" 
@@ -158,20 +158,20 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Email Address" 
                   required
-                  className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                  className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
                 />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Message</label>
                 <textarea 
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="How can we help you?" 
-                  rows="4"
+                  rows="3"
                   required
-                  className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all resize-none"
+                  className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all resize-none"
                 ></textarea>
               </div>
 

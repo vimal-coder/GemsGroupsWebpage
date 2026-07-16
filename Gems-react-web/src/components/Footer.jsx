@@ -8,8 +8,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-dark-bg/95 border-t border-white/5 pt-16 pb-8 relative z-20 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10 md:mb-16">
           
           {/* Logo and Contact Banner */}
           <div className="lg:col-span-1">
@@ -48,8 +48,8 @@ const Footer = () => {
           </div>
 
           {/* Project Banner */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-gold-primary/5 to-transparent border border-gold-primary/10 p-8 rounded-xl h-fit">
-            <h3 className="text-2xl font-serif text-white mb-2">Have a Project in Mind?</h3>
+          <div className="lg:col-span-2 bg-gradient-to-br from-gold-primary/5 to-transparent border border-gold-primary/10 p-6 md:p-8 rounded-xl h-fit">
+            <h3 className="text-xl md:text-2xl font-serif text-white mb-2">Have a Project in Mind?</h3>
             <p className="text-gray-400 text-sm mb-6">We’re here to turn your ideas into reality.</p>
             
             <div className="space-y-4">

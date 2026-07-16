@@ -105,15 +105,15 @@ const GlobalMembership = () => {
       <AnimatedBackground />
       <Navbar />
 
-      <main className="relative z-10 pt-32 pb-24 flex-grow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="relative z-10 pt-16 pb-2 flex-grow flex flex-col justify-center">
+        <div className="container flex flex-col justify-center h-full">
           
           {/* Header */}
-          <div className="text-center mb-20 max-w-4xl mx-auto">
+          <div className="text-center mb-2 max-w-4xl mx-auto">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif text-gold-primary mb-8 tracking-wider"
+              className="text-2xl sm:text-3xl md:text-4xl font-serif text-gold-primary mb-1 tracking-wider"
             >
               Global Membership Plans
             </motion.h1>
@@ -121,7 +121,7 @@ const GlobalMembership = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-gray-300 text-lg md:text-xl font-medium leading-relaxed mb-8"
+              className="text-gray-300 text-[11px] leading-tight mb-2"
             >
               Global Membership Plans by GEMS Groups provide premium travel experiences, luxury lifestyle benefits, automotive solutions, and strategic business services across Vietnam, India, and the USA.
             </motion.p>
@@ -129,11 +129,11 @@ const GlobalMembership = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-lg font-semibold mt-10"
+              className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[10px] font-semibold mt-1"
             >
               <button 
                 onClick={() => setSelectedCountry('Vietnam')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 ${selectedCountry === 'Vietnam' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 ${selectedCountry === 'Vietnam' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
               >
                 <span className="font-bold">VN</span> Vietnam
               </button>
@@ -142,7 +142,7 @@ const GlobalMembership = () => {
               
               <button 
                 onClick={() => setSelectedCountry('India')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 ${selectedCountry === 'India' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 ${selectedCountry === 'India' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
               >
                 <span className="font-bold">IN</span> India
               </button>
@@ -151,7 +151,7 @@ const GlobalMembership = () => {
               
               <button 
                 onClick={() => setSelectedCountry('USA')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 ${selectedCountry === 'USA' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 ${selectedCountry === 'USA' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
               >
                 <span className="font-bold">US</span> USA
               </button>
@@ -159,43 +159,43 @@ const GlobalMembership = () => {
           </div>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-4 mb-2">
             {activePlans.map((plan, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
-                className={`rounded-2xl p-8 flex flex-col h-full border border-gray-700/50 backdrop-blur-md ${plan.cardStyle}`}
+                className={`rounded-2xl p-2.5 flex flex-col h-full border border-gray-700/50 backdrop-blur-md bg-gradient-to-b from-[#1a1a1a]/60 to-transparent`}
               >
-                <div className="mb-8">
-                  <h3 className="text-3xl font-serif text-gold-primary mb-3 tracking-wide">{plan.name}</h3>
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="text-gold-primary text-xl">◉</span>
-                    <span className="text-3xl font-bold text-white tracking-wide">{plan.price}</span>
+                <div className="mb-2">
+                  <h3 className="text-lg font-serif text-gold-primary mb-1 tracking-wide">{plan.name}</h3>
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <span className="text-gold-primary text-sm">◉</span>
+                    <span className="text-lg font-bold text-white tracking-wide">{plan.price}</span>
                   </div>
-                  <p className="text-sm text-gray-300 leading-relaxed min-h-[60px]">
+                  <p className="text-[10px] text-gray-300 leading-tight mb-2">
                     {plan.desc}
                   </p>
                 </div>
 
-                <div className="w-full h-[1px] bg-gray-800 mb-8"></div>
+                <div className="w-full h-[1px] bg-gray-800 my-2"></div>
 
                 <div className="flex-grow">
-                  <h4 className="text-gold-primary font-bold uppercase tracking-widest text-sm mb-5">Benefits</h4>
-                  <ul className="space-y-4 text-sm text-gray-200 font-medium mb-10">
+                  <h4 className="text-gold-primary font-bold uppercase tracking-widest text-[10px] mb-1">Benefits</h4>
+                  <ul className="space-y-1 text-[10px] text-gray-200 font-medium mb-2">
                     {plan.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 bg-gold-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                        <span className="leading-relaxed">{feature}</span>
+                      <li key={fIndex} className="flex items-start gap-1.5">
+                        <div className="w-1 h-1 bg-gold-primary rounded-full mt-1 flex-shrink-0"></div>
+                        <span className="leading-tight">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <h4 className="text-gold-primary font-bold uppercase tracking-widest text-sm mb-5">Validity</h4>
-                  <ul className="space-y-3 text-sm text-gray-300 font-medium">
+                  <h4 className="text-gold-primary font-bold uppercase tracking-widest text-[10px] mb-1">Validity</h4>
+                  <ul className="space-y-1 text-[10px] text-gray-300 font-medium">
                     {plan.validity.map((v, vIndex) => (
-                      <li key={vIndex} className="flex items-center gap-3">
+                      <li key={vIndex} className="flex items-center gap-1.5">
                         <div className="w-1 h-1 bg-gray-500 rounded-full flex-shrink-0"></div>
                         <span>{v}</span>
                       </li>
@@ -205,7 +205,7 @@ const GlobalMembership = () => {
 
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className={`w-full mt-12 py-4 rounded-lg uppercase tracking-widest text-sm font-bold transition-all duration-300 shadow-lg hover:shadow-gold-primary/20 inline-block text-center ${plan.buttonStyle}`}
+                  className={`w-full mt-2 py-2 rounded-lg uppercase tracking-widest text-[10px] font-bold transition-all duration-300 shadow-lg hover:shadow-gold-primary/20 inline-block text-center bg-[#876615] hover:bg-[#A67E1D] text-white`}
                 >
                   Join Membership
                 </button>
@@ -218,18 +218,18 @@ const GlobalMembership = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-gold-primary/20 via-gold-primary/5 to-transparent border border-gold-primary/20 rounded-2xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8"
+            className="bg-gradient-to-r from-gold-primary/20 via-gold-primary/5 to-transparent border border-gold-primary/20 rounded-2xl p-2.5 sm:p-3 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-2"
           >
             <div>
-              <h3 className="text-2xl md:text-3xl font-serif text-white mb-4">Encountering an issue?</h3>
-              <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
+              <h3 className="text-base font-serif text-white mb-0.5">Encountering an issue?</h3>
+              <p className="text-gray-300 text-[10px] max-w-2xl leading-none">
                 Or interested in a Custom Enterprise Membership tailored to your needs?<br/>
                 Feel free to reach out to us—we're here to help!
               </p>
             </div>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="whitespace-nowrap px-8 py-4 bg-white text-dark-bg hover:bg-gray-200 font-bold uppercase tracking-widest text-sm rounded-lg transition-colors inline-block text-center"
+              className="whitespace-nowrap px-3 py-1.5 bg-white text-dark-bg hover:bg-gray-200 font-bold uppercase tracking-widest text-[9px] rounded-lg transition-colors inline-block text-center"
             >
               Contact GEMS Groups
             </button>
@@ -237,8 +237,6 @@ const GlobalMembership = () => {
 
         </div>
       </main>
-
-      <Footer />
 
       {/* Membership Form Modal */}
       <AnimatePresence>
@@ -253,7 +251,7 @@ const GlobalMembership = () => {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-dark-bg border border-gray-800 rounded-2xl p-8 w-full max-w-2xl relative shadow-2xl shadow-gold-primary/10 overflow-y-auto max-h-[90vh]"
+              className="bg-dark-bg border border-gray-800 rounded-2xl p-5 sm:p-6 md:p-8 w-[95%] lg:w-full max-w-2xl relative shadow-2xl shadow-gold-primary/10 overflow-y-auto max-h-[90vh] mx-auto"
             >
               <button 
                 onClick={() => setIsModalOpen(false)}
@@ -262,10 +260,10 @@ const GlobalMembership = () => {
                 <X size={24} />
               </button>
 
-              <h2 className="text-2xl font-serif text-white mb-8 uppercase tracking-widest">Message Us</h2>
+              <h2 className="text-xl md:text-2xl font-serif text-white mb-6 md:mb-8 uppercase tracking-widest">Message Us</h2>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div className="space-y-2">
                     <label className="text-xs uppercase tracking-widest font-semibold text-gray-400 ml-1">Name</label>
                     <input 

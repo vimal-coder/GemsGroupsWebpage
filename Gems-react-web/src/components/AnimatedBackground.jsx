@@ -41,7 +41,7 @@ const AnimatedBackground = () => {
   const spotlight = useMotionTemplate`radial-gradient(circle 800px at ${mouseX}px ${mouseY}px, rgba(212,175,55,0.15), transparent 80%)`;
 
   return (
-    <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-dark-bg perspective-1000">
+    <div className="fixed inset-0 w-full h-full overflow-hidden max-w-[100vw] overflow-x-hidden pointer-events-none z-0 bg-dark-bg perspective-1000">
       
       {/* 3D Background Image Layer */}
       <motion.div 
@@ -84,8 +84,8 @@ const AnimatedBackground = () => {
           key={i}
           className="absolute w-1 h-1 bg-gold-primary rounded-full z-20"
           initial={{
-            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
             opacity: 0,
             scale: 0,
           }}

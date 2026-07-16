@@ -30,7 +30,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-dark-bg text-white overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center bg-dark-bg text-white overflow-hidden px-4">
       <AnimatedBackground />
 
       <div className="absolute top-8 left-8 z-50">
