@@ -23,7 +23,7 @@ const StaffLogin = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-bg text-white px-4">
       <AnimatedBackground />
-      
+
       {/* Return to Home button */}
       <div className="absolute top-8 left-8 z-50">
         <Button variant="secondary" onClick={() => navigate('/')} className="!py-2 !px-4 !text-sm">
@@ -31,7 +31,7 @@ const StaffLogin = () => {
         </Button>
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -59,7 +59,7 @@ const StaffLogin = () => {
           </div>
 
           {error && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 text-red-400 text-sm bg-red-400/10 p-3 rounded-lg border border-red-400/20"

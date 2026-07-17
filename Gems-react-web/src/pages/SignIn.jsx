@@ -21,7 +21,7 @@ const SignIn = () => {
     try {
       const data = await loginUser(email, password);
       console.log('Login successful:', data);
-      navigate('/employee-portal'); 
+      navigate('/employee-portal');
     } catch (err) {
       setError(err.message || 'Failed to sign in. Please check your credentials.');
     } finally {
@@ -39,7 +39,7 @@ const SignIn = () => {
         </Button>
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -77,7 +77,7 @@ const SignIn = () => {
           </div>
 
           {error && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 text-red-400 text-sm bg-red-400/10 p-3 rounded-lg border border-red-400/20"
@@ -87,9 +87,9 @@ const SignIn = () => {
             </motion.div>
           )}
 
-          <Button 
-            type="submit" 
-            variant="primary" 
+          <Button
+            type="submit"
+            variant="primary"
             className="w-full justify-center mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
             disabled={isLoading}
           >
