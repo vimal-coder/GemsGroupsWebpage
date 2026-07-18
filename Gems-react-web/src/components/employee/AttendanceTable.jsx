@@ -33,7 +33,7 @@ const AttendanceTable = ({ data, loading }) => {
   return (
     <div className="glass-card overflow-hidden">
       <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+        <table className="w-full text-left border-collapse whitespace-nowrap md:whitespace-normal">
           <thead>
             <tr className="bg-white/5 border-b border-gold-primary/20 text-gold-secondary text-sm font-medium">
               <th className="py-4 px-6 font-cinzel">Date</th>

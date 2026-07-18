@@ -95,7 +95,7 @@ const MembershipPlans = () => {
                 </ul>
               </div>
 
-              <Link to="/global-membership" className={`mt-6 mb-2 px-6 sm:px-10 py-3 rounded uppercase tracking-widest text-xs font-bold transition-colors duration-300 ${plan.buttonStyle} inline-block text-center w-full`}>
+              <Link to="/global-membership" className={`mt-6 mb-2 px-6 sm:px-10 py-3 rounded uppercase tracking-widest text-xs font-bold transition-colors duration-300 ${plan.buttonStyle} flex items-center justify-center text-center w-full min-h-[44px]`}>
                 View Plan
               </Link>
             </motion.div>

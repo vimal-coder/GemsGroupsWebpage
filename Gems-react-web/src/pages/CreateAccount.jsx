@@ -68,7 +68,7 @@ const CreateAccount = () => {
               placeholder="Your name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full bg-dark-bg/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 transition-colors"
+              className="w-full bg-dark-bg/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 transition-colors min-h-[44px]"
               required
             />
           </div>
@@ -80,7 +80,7 @@ const CreateAccount = () => {
               placeholder="name@company.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-dark-bg/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 transition-colors"
+              className="w-full bg-dark-bg/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 transition-colors min-h-[44px]"
               required
             />
           </div>
@@ -92,7 +92,7 @@ const CreateAccount = () => {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-dark-bg/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-700 tracking-widest focus:outline-none focus:border-gold-primary/50 transition-colors"
+              className="w-full bg-dark-bg/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-700 tracking-widest focus:outline-none focus:border-gold-primary/50 transition-colors min-h-[44px]"
               required
             />
           </div>

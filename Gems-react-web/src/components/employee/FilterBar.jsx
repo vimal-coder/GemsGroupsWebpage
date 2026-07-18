@@ -14,7 +14,7 @@ const FilterBar = ({ onDownload, onFilter }) => {
             type="date" 
             value={fromDate}
             onChange={(e) => setFromDate(e.target.value)}
-            className="bg-dark-bg/50 border border-white/10 text-gray-200 text-sm rounded-lg focus:ring-gold-primary focus:border-gold-primary block w-full p-2.5 transition-colors" 
+            className="bg-dark-bg/50 border border-white/10 text-gray-200 text-sm rounded-lg focus:ring-gold-primary focus:border-gold-primary block w-full p-2.5 transition-colors min-h-[44px]" 
           />
         </div>
         <div>
@@ -23,13 +23,13 @@ const FilterBar = ({ onDownload, onFilter }) => {
             type="date" 
             value={toDate}
             onChange={(e) => setToDate(e.target.value)}
-            className="bg-dark-bg/50 border border-white/10 text-gray-200 text-sm rounded-lg focus:ring-gold-primary focus:border-gold-primary block w-full p-2.5 transition-colors" 
+            className="bg-dark-bg/50 border border-white/10 text-gray-200 text-sm rounded-lg focus:ring-gold-primary focus:border-gold-primary block w-full p-2.5 transition-colors min-h-[44px]" 
           />
         </div>
         <div className="flex items-end">
           <button 
             onClick={() => onFilter && onFilter(fromDate, toDate)}
-            className="h-[42px] px-4 bg-white/5 hover:bg-white/10 text-gold-secondary border border-gold-primary/30 rounded-lg transition-colors flex items-center justify-center"
+            className="min-h-[44px] px-4 bg-white/5 hover:bg-white/10 text-gold-secondary border border-gold-primary/30 rounded-lg transition-colors flex items-center justify-center"
           >
             <Filter className="w-4 h-4 mr-2" />
             Filter
@@ -37,7 +37,7 @@ const FilterBar = ({ onDownload, onFilter }) => {
           {(fromDate || toDate) && (
             <button 
               onClick={() => { setFromDate(''); setToDate(''); onFilter && onFilter('', ''); }}
-              className="h-[42px] px-3 ml-2 bg-transparent hover:bg-red-500/10 text-gray-400 hover:text-red-400 rounded-lg transition-colors flex items-center justify-center"
+              className="min-h-[44px] px-3 ml-2 bg-transparent hover:bg-red-500/10 text-gray-400 hover:text-red-400 rounded-lg transition-colors flex items-center justify-center"
               title="Clear Filters"
             >
               <X className="w-5 h-5" />
@@ -49,7 +49,7 @@ const FilterBar = ({ onDownload, onFilter }) => {
       <div>
         <button 
           onClick={onDownload}
-          className="h-[42px] w-full md:w-auto px-4 bg-gold-primary hover:bg-gold-secondary text-black rounded-lg transition-colors flex items-center justify-center font-semibold"
+          className="min-h-[44px] w-full md:w-auto px-4 bg-gold-primary hover:bg-gold-secondary text-black rounded-lg transition-colors flex items-center justify-center font-semibold"
         >
           <Download className="w-4 h-4 mr-2" />
           Download CSV

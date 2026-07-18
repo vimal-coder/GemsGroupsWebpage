@@ -7,6 +7,8 @@ import SignIn from './pages/SignIn';
 import CreateAccount from './pages/CreateAccount';
 import GlobalMembership from './pages/GlobalMembership';
 import ContactPage from './pages/ContactPage';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 
 // Employee Module
 import EmployeeLayout from './layouts/EmployeeLayout';
@@ -20,6 +22,8 @@ function App() {
         {/* Existing Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/staff-login" element={<StaffLogin />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/employee-portal" element={<EmployeePortal />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/create-account" element={<CreateAccount />} />

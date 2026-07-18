@@ -133,7 +133,7 @@ const GlobalMembership = () => {
             >
               <button 
                 onClick={() => setSelectedCountry('Vietnam')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 ${selectedCountry === 'Vietnam' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 min-h-[44px] ${selectedCountry === 'Vietnam' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
               >
                 <span className="font-bold">VN</span> Vietnam
               </button>
@@ -142,7 +142,7 @@ const GlobalMembership = () => {
               
               <button 
                 onClick={() => setSelectedCountry('India')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 ${selectedCountry === 'India' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 min-h-[44px] ${selectedCountry === 'India' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
               >
                 <span className="font-bold">IN</span> India
               </button>
@@ -151,7 +151,7 @@ const GlobalMembership = () => {
               
               <button 
                 onClick={() => setSelectedCountry('USA')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 ${selectedCountry === 'USA' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full transition-all duration-300 min-h-[44px] ${selectedCountry === 'USA' ? 'bg-gold-primary/20 text-white border border-gold-primary/50' : 'text-gray-400 hover:text-white border border-transparent'}`}
               >
                 <span className="font-bold">US</span> USA
               </button>
@@ -205,7 +205,7 @@ const GlobalMembership = () => {
 
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className={`w-full mt-2 py-2 rounded-lg uppercase tracking-widest text-[10px] font-bold transition-all duration-300 shadow-lg hover:shadow-gold-primary/20 inline-block text-center bg-[#876615] hover:bg-[#A67E1D] text-white`}
+                  className={`w-full mt-2 py-2 rounded-lg uppercase tracking-widest text-[10px] font-bold transition-all duration-300 shadow-lg hover:shadow-gold-primary/20 inline-block text-center bg-[#876615] hover:bg-[#A67E1D] text-white min-h-[44px]`}
                 >
                   Join Membership
                 </button>
@@ -229,7 +229,7 @@ const GlobalMembership = () => {
             </div>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="whitespace-nowrap px-3 py-1.5 bg-white text-dark-bg hover:bg-gray-200 font-bold uppercase tracking-widest text-[9px] rounded-lg transition-colors inline-block text-center"
+              className="whitespace-nowrap px-3 py-1.5 bg-white text-dark-bg hover:bg-gray-200 font-bold uppercase tracking-widest text-[9px] rounded-lg transition-colors inline-block text-center min-h-[44px]"
             >
               Contact GEMS Groups
             </button>
@@ -255,7 +255,7 @@ const GlobalMembership = () => {
             >
               <button 
                 onClick={() => setIsModalOpen(false)}
-                className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors"
+                className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
                 <X size={24} />
               </button>
@@ -273,7 +273,7 @@ const GlobalMembership = () => {
                       onChange={handleChange}
                       placeholder="Enter Your Name" 
                       required
-                      className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                      className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all min-h-[44px]"
                     />
                   </div>
                   <div className="space-y-2">
@@ -285,7 +285,7 @@ const GlobalMembership = () => {
                       onChange={handleChange}
                       placeholder="Enter Your Phone Number" 
                       required
-                      className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                      className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all min-h-[44px]"
                     />
                   </div>
                 </div>
@@ -299,7 +299,7 @@ const GlobalMembership = () => {
                     onChange={handleChange}
                     placeholder="Email Address" 
                     required
-                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all min-h-[44px]"
                   />
                 </div>
 
@@ -312,7 +312,7 @@ const GlobalMembership = () => {
                     placeholder="How can we help you?" 
                     rows="4"
                     required
-                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all resize-none"
+                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all resize-none min-h-[44px]"
                   ></textarea>
                 </div>
 
@@ -336,7 +336,7 @@ const GlobalMembership = () => {
                       exit={{ opacity: 0 }}
                       type="submit"
                       disabled={submitStatus === 'submitting'}
-                      className={`w-full bg-gold-primary text-black font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:bg-gold-secondary transition-colors duration-300 flex items-center justify-center gap-2 mt-4 ${submitStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                      className={`w-full bg-gold-primary text-black font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:bg-gold-secondary transition-colors duration-300 flex items-center justify-center gap-2 mt-4 min-h-[44px] ${submitStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
                     >
                       <Send size={18} className={submitStatus === 'submitting' ? 'animate-pulse' : ''} />
                       {submitStatus === 'submitting' ? 'Sending...' : 'Message Us'}

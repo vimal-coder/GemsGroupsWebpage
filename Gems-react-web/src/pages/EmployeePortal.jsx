@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { LayoutDashboard, LogOut, Users, Briefcase, Settings } from 'lucide-react';
+import { LayoutDashboard, LogOut, Users, Briefcase, Settings, Shield } from 'lucide-react';
 import Button from '../components/Button';
 import AnimatedBackground from '../components/AnimatedBackground';
 
@@ -15,6 +15,7 @@ const EmployeePortal = () => {
 
   const menuItems = [
     { title: 'Dashboard', icon: LayoutDashboard },
+    { title: 'Admin Dashboard', icon: Shield },
   ];
 
   return (
@@ -53,6 +54,8 @@ const EmployeePortal = () => {
                 onClick={() => {
                   if (item.title === 'Dashboard') {
                     navigate('/sign-in');
+                  } else if (item.title === 'Admin Dashboard') {
+                    navigate('/admin-login');
                   }
                 }}
                 className="glass-card p-6 cursor-pointer group hover:bg-gold-primary/5 transition-colors"

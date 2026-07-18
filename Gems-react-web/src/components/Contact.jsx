@@ -132,7 +132,7 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Enter Your Name" 
                     required
-                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all min-h-[44px]"
                   />
                 </div>
                 <div className="space-y-1">
@@ -144,7 +144,7 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Enter Your Phone Number" 
                     required
-                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                    className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all min-h-[44px]"
                   />
                 </div>
               </div>
@@ -158,7 +158,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Email Address" 
                   required
-                  className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all"
+                  className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all min-h-[44px]"
                 />
               </div>
 
@@ -171,7 +171,7 @@ const Contact = () => {
                   placeholder="How can we help you?" 
                   rows="3"
                   required
-                  className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all resize-none"
+                  className="w-full bg-dark-bg/50 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-gold-primary/50 focus:ring-1 focus:ring-gold-primary/50 transition-all resize-none min-h-[44px]"
                 ></textarea>
               </div>
 
@@ -195,7 +195,7 @@ const Contact = () => {
                     exit={{ opacity: 0 }}
                     type="submit"
                     disabled={submitStatus === 'submitting'}
-                    className={`w-full bg-gold-primary text-black font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:bg-gold-secondary transition-colors duration-300 flex items-center justify-center gap-2 mt-4 ${submitStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    className={`w-full bg-gold-primary text-black font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:bg-gold-secondary transition-colors duration-300 flex items-center justify-center gap-2 mt-4 min-h-[44px] ${submitStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
                   >
                     <Send size={18} className={submitStatus === 'submitting' ? 'animate-pulse' : ''} />
                     {submitStatus === 'submitting' ? 'Sending...' : 'Message Us'}

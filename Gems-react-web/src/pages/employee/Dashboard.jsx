@@ -64,7 +64,7 @@ const Dashboard = () => {
           value={data?.weeklyHours} 
           icon={Calendar} 
           colorClass="bg-white/5 text-gray-200 border-white/20" 
-          subtitle="Out of 45h"
+          subtitle="Out of 30h"
         />
       </div>
 

@@ -159,7 +159,7 @@ const Services = ({ openServiceIndex, onCloseService }) => {
             >
               <button 
                 onClick={handleClose}
-                className="absolute top-6 right-6 text-gray-400 hover:text-white hover:rotate-90 transition-all duration-300"
+                className="absolute top-6 right-6 text-gray-400 hover:text-white hover:rotate-90 transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
                 <X size={24} />
               </button>
@@ -200,7 +200,7 @@ const Services = ({ openServiceIndex, onCloseService }) => {
               <div className="mt-10 flex justify-end">
                 <button 
                   onClick={handleClose}
-                  className="px-8 py-3 rounded-full border-2 border-gold-primary text-gold-primary hover:bg-gold-primary hover:text-black font-bold uppercase tracking-widest text-xs transition-all duration-300"
+                  className="px-8 py-3 rounded-full border-2 border-gold-primary text-gold-primary hover:bg-gold-primary hover:text-black font-bold uppercase tracking-widest text-xs transition-all duration-300 min-h-[44px]"
                 >
                   Close
                 </button>

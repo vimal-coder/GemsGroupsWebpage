@@ -3,7 +3,7 @@ export const dashboardData = {
   checkIn: "09:30 AM",
   checkOut: "06:00 PM",
   workingHours: "8h 30m",
-  weeklyHours: "42h"
+  weeklyHours: "30h"
 };
 
 export const weeklySummaryData = [

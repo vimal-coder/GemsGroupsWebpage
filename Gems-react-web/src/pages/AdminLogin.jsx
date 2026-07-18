@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Lock, UserCheck, AlertCircle } from 'lucide-react';
+import { Shield, UserCheck, AlertCircle } from 'lucide-react';
 import Button from '../components/Button';
 import AnimatedBackground from '../components/AnimatedBackground';
 
-const StaffLogin = () => {
+const AdminLogin = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (password === 'Gems@2020') {
+    if (password === 'David@2003') {
       setError('');
-      navigate('/employee-portal');
+      navigate('/admin-dashboard');
     } else {
       setError('Incorrect password. Please try again.');
     }
@@ -24,10 +24,10 @@ const StaffLogin = () => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-bg text-white px-4">
       <AnimatedBackground />
 
-      {/* Return to Home button */}
+      {/* Return button */}
       <div className="absolute top-8 left-8 z-50">
-        <Button variant="secondary" onClick={() => navigate('/')} className="!py-2 !px-4 !text-sm">
-          &larr; Back to Home
+        <Button variant="secondary" onClick={() => navigate('/employee-portal')} className="!py-2 !px-4 !text-sm">
+          &larr; Back to Portal
         </Button>
       </div>
 
@@ -39,11 +39,11 @@ const StaffLogin = () => {
       >
         <div className="flex flex-col items-center mb-8">
           <div className="w-16 h-16 rounded-full bg-gold-primary/10 flex items-center justify-center mb-4">
-            <Lock className="text-gold-primary" size={32} />
+            <Shield className="text-gold-primary" size={32} />
           </div>
-          <h2 className="text-2xl font-bold text-white tracking-wide">Staff Access</h2>
+          <h2 className="text-2xl font-bold text-white tracking-wide">Admin Access</h2>
           <p className="text-gray-400 text-sm mt-2 text-center">
-            Restricted area. Please enter the master password to continue.
+            Restricted area. Please enter the admin password to continue.
           </p>
         </div>
 
@@ -79,4 +79,4 @@ const StaffLogin = () => {
   );
 };
 
-export default StaffLogin;
+export default AdminLogin;
