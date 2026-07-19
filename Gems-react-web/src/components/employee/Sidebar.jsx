@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, CalendarDays, LogOut, UserCircle } from 'lucide-react';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   return (
     <aside className="w-64 glass-nav border-r border-gold-primary/20 text-white hidden md:flex flex-col h-full z-20">
       <div className="h-16 flex items-center px-6 border-b border-gold-primary/20">
@@ -42,7 +43,10 @@ const Sidebar = () => {
       </nav>
 
       <div className="p-4 border-t border-gold-primary/20">
-        <button className="flex items-center w-full px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-red-400 rounded-lg transition-colors">
+        <button 
+          onClick={() => navigate('/employee-portal')}
+          className="flex items-center w-full px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-red-400 rounded-lg transition-colors"
+        >
           <LogOut className="w-5 h-5 mr-3" />
           Logout
         </button>
